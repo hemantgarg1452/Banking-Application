@@ -1,7 +1,6 @@
 package com.example.bankapp.model;
 
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

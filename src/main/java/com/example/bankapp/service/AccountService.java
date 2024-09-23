@@ -23,7 +23,7 @@ import java.util.List;
 public class AccountService implements UserDetailsService {
 
     @Autowired
-    PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     private AccountRepository accountRepository;
@@ -132,7 +132,7 @@ public class AccountService implements UserDetailsService {
 
         Transaction creditTransactions = new Transaction(
                 amount,
-                "Transfer in to"+fromAccount.getUserName(),
+                "Transfer in from"+fromAccount.getUserName(),
                 LocalDateTime.now(),
                 toAccount
         );

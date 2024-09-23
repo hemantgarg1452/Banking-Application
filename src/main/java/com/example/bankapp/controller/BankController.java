@@ -36,7 +36,7 @@ public class BankController {
         try{
             accountService.registerAccount(username, password);
             return "redirect:/login";
-        } catch (Exception e){
+        } catch (RuntimeException e){
             model.addAttribute("error", e.getMessage());
             return "register";
         }
@@ -77,5 +77,20 @@ public class BankController {
 
         model.addAttribute("transactions", accountService.getTransactionHistory(account));
         return "transactions";
+    }
+
+    @PostMapping("/transfer")
+    public String transferAmount(@RequestParam String toAccount, BigDecimal amount, Model model){
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        Account fromAccount = accountService.findAccountByUsername(username);
+
+        try{
+            accountService.transferMoney(fromAccount, toAccount, amount);
+        } catch (RuntimeException re){
+            model.addAttribute("error",re.getMessage());
+            model.addAttribute("account", fromAccount);
+            return "dashboard";
+        }
+        return "redirect:/dashboard";
     }
 }

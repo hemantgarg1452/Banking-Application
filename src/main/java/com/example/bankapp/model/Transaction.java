@@ -1,7 +1,6 @@
 package com.example.bankapp.model;
 
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
