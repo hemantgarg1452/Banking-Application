@@ -1,0 +1,23 @@
+version: '3.9'
+services:
+  mysql:
+    image: bitnami/mysql
+    container_name: mysql_bankapp
+    environment:
+      MYSQL_ROOT_PASSWORD: "**Password**"  # Only set this for root access
+      MYSQL_DATABASE: bankapp              # Matches the database name in application.properties
+      MYSQL_USER: bankuser                 # Create a new user 'bankuser'
+      MYSQL_PASSWORD: bankpassword         # Set a password for 'bankuser'
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - bankapp-network
+
+volumes:
+  mysql_data:
+
+networks:
+  bankapp-network:
+    driver: bridge
