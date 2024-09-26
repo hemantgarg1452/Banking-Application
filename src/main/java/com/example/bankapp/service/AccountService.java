@@ -33,12 +33,12 @@ public class AccountService implements UserDetailsService {
 
     // find account by username....
     public Account findAccountByUsername(String username){
-        return accountRepository.findByUsername(username).orElseThrow(()->new RuntimeException("Account Not Found!"));
+        return accountRepository.findByUserName(username).orElseThrow(()->new RuntimeException("Account Not Found!"));
     }
 
     // Register Account....
     public Account registerAccount(String username, String password){
-        if(accountRepository.findByUsername(username).isPresent()) {
+        if(accountRepository.findByUserName(username).isPresent()) {
             throw new RuntimeException("User already exists!");
         }
 
@@ -81,7 +81,7 @@ public class AccountService implements UserDetailsService {
     }
 
     public List<Transaction> getTransactionHistory(Account account){
-        return transactionRepository.findByAccountID(account.getId());
+        return transactionRepository.findByAccountId(account.getId());
     }
 
 
@@ -110,7 +110,7 @@ public class AccountService implements UserDetailsService {
             throw new RuntimeException("Insufficient Balance!");
         }
 
-        Account toAccount = accountRepository.findByUsername(username)
+        Account toAccount = accountRepository.findByUserName(username)
                 .orElseThrow(()->new RuntimeException("Account not found!"));
 
         // Deduct the Money...

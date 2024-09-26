@@ -9,12 +9,15 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
+@Table(name = "accounts")
 public class Account implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "username", nullable = false, unique = true)
     private String userName;
+    @Column(name = "password", nullable = false)
     private String password;
     private BigDecimal balance;
 
