@@ -50,5 +50,12 @@ A simple banking application built using Java, Spring Boot, and Thymeleaf. The a
   If using Gradle:
   ```bash
   gradle bootRun
+```
+4. Open the application in your browser at http://localhost:8080
 
-
+##Contributing
+1. Fork the repository.
+2. Create a new feature branch (git checkout -b feature-name).
+3. Commit your changes (git commit -m 'Add new feature').
+4. Push to your branch (git push origin feature-name).
+5. Create a Pull Request.
