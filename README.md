@@ -53,7 +53,7 @@ A simple banking application built using Java, Spring Boot, and Thymeleaf. The a
 ```
 4. Open the application in your browser at http://localhost:8080
 
-##Contributing
+## Contributing
 1. Fork the repository.
 2. Create a new feature branch (git checkout -b feature-name).
 3. Commit your changes (git commit -m 'Add new feature').
